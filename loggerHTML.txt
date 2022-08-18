@@ -1,0 +1,8 @@
+create wpf supplicant file on pc
+plug in logger sd
+add the created file into the sd
+log into the logger/pi
+logged into HTML
+powered on GM
+powered on DM
+flipped switch logger on in HTML
