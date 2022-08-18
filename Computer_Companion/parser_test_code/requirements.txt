@@ -1,0 +1,4 @@
+# This is a pip requirements.txt files listing the dependencies
+# for LoLasParser package
+
+unittest
