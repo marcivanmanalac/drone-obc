@@ -1,0 +1,4 @@
+scp >= 0.13.3
+paramiko
+pyserial
+can

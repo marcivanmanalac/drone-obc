@@ -1,0 +1,40 @@
+{
+    "networkType": "ground modules",
+    "firmwareVersion": "1.2",
+    "configurationHash": "eECMbNCHdovzAbx5",
+    "networkDescription": [
+        {
+            "uid": 3944,
+            "role": "2"
+        },
+        {
+            "uid": 6783,
+            "role": "1"
+        },
+        {
+            "uid": 456,
+            "role": "3"
+        },
+        {
+            "uid": 5774,
+            "role": "4"
+        }
+    ],
+    "parameters": [
+        {
+            "key0": "Low verbosity"
+        },
+        {
+            "key1": "True"
+        },
+        {
+            "key2": "True"
+        },
+        {
+            "key3": "False"
+        },
+        {
+            "key4": "10"
+        }
+    ]
+}

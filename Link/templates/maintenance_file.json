@@ -1,0 +1,29 @@
+{
+   "networkType": "drone",
+   "firmwareVersion": "1.10",
+   "events": [
+        [
+          {"eventID" :  1},
+          {"flight" :  1},
+          {"sourceUID" :  3},
+          {"eventCode" :  32}
+        ],
+        [
+          {"eventID" :  2},
+          {"flight" :  1},
+          {"sourceUID" :  1},
+          {"eventCode" :  10}
+        ],
+        [
+          {"eventID" :  3},
+          {"flight" :  1},
+          {"sourceUID" :  1},
+          {"eventCode" :  11}
+        ]
+   ],
+   "metrics": [
+     {"flights": 12},
+     {"on_time": 51468516},
+	 {"last_parameters_update": 18615}
+   ]
+}

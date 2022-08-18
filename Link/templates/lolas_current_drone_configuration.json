@@ -1,0 +1,44 @@
+{
+    "networkType": "drone modules",
+    "firmwareVersion": "4.6",
+    "configurationHash": "eECMbNCHdovzAbx5",
+    "networkDescription": [
+        {
+            "uid": 3944,
+            "role": "2"
+        },
+        {
+            "uid": 6783,
+            "role": "1"
+        }
+    ],
+    "parameters": [
+        {
+            "key0": 150
+        },
+        {
+            "key1": 70
+        },
+        {
+            "key2": 30
+        },
+        {
+            "key3": "Low verbosity"
+        },
+        {
+            "key4": "True"
+        },
+        {
+            "key5": "True"
+        },
+        {
+            "key6": "True"
+        },
+        {
+            "key7": "False"
+        },
+        {
+            "key8": "10"
+        }
+    ]
+}

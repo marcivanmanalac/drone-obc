@@ -1,0 +1,45 @@
+{
+   "configurationHash": "iubgviznvn",
+   "networkDescription": [
+        {
+            "uid": 3944,
+            "role": "2"
+        },
+        {
+            "uid": 6783,
+            "role": "1"
+        }
+    ],
+    "parameters": [
+        {
+            "key0": 10
+        },
+        {
+            "key1": 20
+        },
+        {
+            "key2": 30
+        },
+        {
+            "key3": 40
+        },
+        {
+            "key4": 50
+        },
+        {
+            "key5": 60
+        },
+        {
+            "key6": 70
+        },
+        {
+            "key7": 80
+        },
+        {
+            "key8": 90
+        },
+		{
+            "key9": 100
+        }
+    ]
+}

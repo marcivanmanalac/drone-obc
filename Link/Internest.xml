@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!--
+(c) 2005-2015 Copyright, Real-Time Innovations.  All rights reserved.
+No duplications, whole or partial, manual or electronic, may be made
+without express written permission.  Any such copies, or revisions thereof,
+must display this notice unaltered.
+This code contains trade secrets of Real-Time Innovations, Inc.
+ -->
+
+<dds xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://community.rti.com/schema/5.1.0/rti_dds_profiles.xsd" version="5.1.0">
+
+    <!-- Qos Library -->
+	<qos_library name="QosLibrary">
+		<qos_profile name="DefaultProfile" is_default_qos="true">
+			<participant_qos>
+				<transport_builtin>
+				    <mask>UDPV4 | SHMEM</mask>
+				</transport_builtin>
+
+				<!-- Turn on monitoring -->
+				<!-- Begin Monitoring
+				<property>
+					<value>
+						<element>
+							<name>rti.monitor.library</name>
+							<value>rtimonitoring</value>
+						</element>
+						<element>
+							<name>rti.monitor.create_function_ptr</name>
+							<value>$(NDDS_MONITOR)</value>
+						</element>
+					</value>
+				</property>
+				 End Monitoring -->
+			</participant_qos>
+		</qos_profile>
+	</qos_library>
+
+    <!-- types -->
+    <types>
+
+	   	<struct name="Measure" extensibility="extensible">
+			<member name="parametername" stringMaxLength="128" id="0" type="string" key="true"/>
+			<member name="source" stringMaxLength="128" id="1" type="string"/>
+			<member name="timestamp" id="2" type="long"/>
+			<member name="value" id="3" type="double"/>
+			<member name="unit" stringMaxLength="128" id="4" type="string"/>
+			<!-- <member name="min" id="5" type="long"/>
+			<member name="max" id="6" type="long"/> -->
+		</struct>
+		<!-- <struct name="Report" extensibility="extensible">
+			<member name="device_hostname" stringMaxLength="128" id="0" type="string" key="true"/>
+			<member name="equipment_kind" stringMaxLength="128" id="1" type="string"/>
+			<member name="timestamp" id="2" type="long"/>
+			<member name="status" id="3" type="string"/>
+			<member name="ip_address" id="4" type="string"/>
+			<member name="sync" id="5" type="boolean"/>
+			<member name="recorded" id="6" type="long"/>
+		</struct> -->
+		<struct name="Command" extensibility="extensible">
+			<member name="source" stringMaxLength="128" id="0" type="string" key="true"/>
+			<member name="timestamp" id="1" type="double"/>
+			<member name="cmd" id="2" type="string"/>
+			<member name="arg" id="3" type="string"/>
+		</struct>
+    </types>
+
+
+    <!-- Domain Library -->
+    <domain_library name="MyDomainLibrary">
+        <domain name="MyDomain" domain_id="0">
+			
+			<register_type name="Measure" kind="dynamicData" type_ref="Measure" />
+            <topic name="InternestDiag"    register_type_ref="Measure"/>
+
+			<!-- <register_type name="Report" kind="dynamicData" type_ref="Report" />
+            <topic name="NetworkReport"    register_type_ref="Report"/> -->
+
+			<register_type name="Command" kind="dynamicData" type_ref="Command" />
+            <topic name="ControlPanelCommand"    register_type_ref="Command"/>
+			
+
+        </domain>
+    </domain_library>
+
+
+    <!-- Participant library -->
+    <participant_library name="MyParticipantLibrary">
+      <domain_participant name="Zero" domain_ref="MyDomainLibrary::MyDomain">
+
+        <publisher name="MyPublisher">
+			<data_writer name="MyDiagWriter" topic_ref="InternestDiag" />
+			<data_writer name="MyCommandWriter" topic_ref="ControlPanelCommand" />
+			<!-- <data_writer name="MyReportWriter" topic_ref="NetworkReport" /> -->
+        </publisher>
+
+        <subscriber name="MySubscriber">
+			<data_reader name="MyDiagReader" topic_ref="InternestDiag" />
+			<data_reader name="MyCommandReader" topic_ref="ControlPanelCommand" />
+			<!-- <data_reader name="MyReportReader" topic_ref="NetworkReport" /> -->
+        </subscriber>
+
+		  </domain_participant>
+   </participant_library>
+</dds>
