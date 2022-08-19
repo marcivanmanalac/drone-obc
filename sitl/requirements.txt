@@ -1,0 +1,5 @@
+pyserial>=0.0.97
+
+pip install RPi.GPIO
+pip install dronekit
+pip install dronekit-sitl
